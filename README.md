@@ -38,8 +38,8 @@ It has the following differences:
 
 ### Response
 
-The object resolved by `good-dog.core/fetch` is the native [Response](https://developer.mozilla.org/en-US/docs/Web/API/Response) type.
-Provided in this library are also a number of helpers for handling common operations
+The object resolved by `good-dog.core/fetch` is a native [Response](https://developer.mozilla.org/en-US/docs/Web/API/Response) type.
+`good-dog.core` also supplies a number of helpers for handling common operations
 such as converting to JSON, FormData, etc.
 
 
