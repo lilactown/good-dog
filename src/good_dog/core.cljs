@@ -5,13 +5,21 @@
             [good-dog.interceptors :as incpt])
   (:require-macros [good-dog.core]))
 
-(defn array-buffer [res] (gdp/-array-buffer res))
+(defn array-buffer
+  "Reads a fetch Response and converts it to an Array Buffer."
+  [res] (gdp/-array-buffer res))
 
-(defn form-data [res] (gdp/-form-data res))
+(defn form-data
+  "Reads a fetch Response and converts it to a FormData object."
+  [res] (gdp/-form-data res))
 
-(defn json [res] (gdp/-json res))
+(defn json
+  "Reads a fetch Response and converts it to JSON."
+  [res] (gdp/-json res))
 
-(defn text [res] (gdp/-text res))
+(defn text
+  "Reads a fetch Response and converts it to a string."
+  [res] (gdp/-text res))
 
 (defn fetch-handler [request]
   (-> (impl/fetch (get request ::opts)
@@ -21,7 +29,7 @@
                 e))))
 
 (defn fetch
-  "Fetches data from a URL over HTTP(S). Returns a JS Promise.
+  "Fetches data from a URL over HTTP(S). Returns a Promise.
 
   Takes the same options as native fetch: https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch#Supplying_request_options.
 
@@ -45,7 +53,7 @@
 
 (defn fetch-json
   "Fetches JSON data from a URL over HTTP(S), deeply converting the JSON data to
-  a CLJS data. Returns a JS Promise.
+  a CLJS data. Returns a Promise.
 
   It's a shorthand for:
   ```
