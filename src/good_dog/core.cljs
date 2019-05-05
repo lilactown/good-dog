@@ -15,7 +15,10 @@
 
 (defn fetch-handler [request]
   (-> (impl/fetch (get request ::opts)
-                  (get request ::url))))
+                  (get request ::url))
+      ;; Sieparri doesn't handle rejections, but will handle resolved errors
+      (.catch (fn [e]
+                e))))
 
 (defn fetch
   ([opts]
@@ -50,9 +53,17 @@
               :url "https://jsonplaceholder.typicode.com/todos/2"})
       (.then prn))
 
+  ;; error
   (-> (fetch-json {:fetch node-fetch
-                   :url "https://jsonplaceholder.typicode.com/todos/2"})
-      (.then prn))
+                   :url "htt://jsonplaceholder.typicode.com/todos"})
+      (.then prn)
+      (.catch #(prn "error" %)))
+
+  (-> (fetch {:fetch node-fetch
+              :url "https://lilac.town"
+              :interceptors [incpt/json]})
+      (.then prn)
+      (.catch #(prn "error" %)))
 
   (binding [impl/*fetch-impl* node-fetch]
     (-> (fetch {:url "https://jsonplaceholder.typicode.com/todos/2"})
