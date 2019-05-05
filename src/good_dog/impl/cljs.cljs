@@ -89,7 +89,7 @@
    (let [fetch-impl (or *fetch-impl* js/window.fetch)]
      (-> (fetch-impl url)
          (.then extend-response))))
-  ([opts url]
+  ([url opts]
    (let [fetch-impl (or *fetch-impl* (:fetch opts) js/window.fetch)]
      (-> (fetch-impl url (-> opts
                              (dissoc :fetch)
