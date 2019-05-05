@@ -49,7 +49,7 @@
          (recur (next entries)
                 obj))))))
 
-(opts->obj {:foo "bar"})
+(comment (opts->obj {:foo "bar"}))
 
 ;; Maybe memoize?
 (defn- response->map [response]
