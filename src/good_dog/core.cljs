@@ -26,7 +26,7 @@
                                     resolve
                                     reject)))))
 
-(defn conjv [v & xs]
+(defn- conjv [v & xs]
   (apply conj (or v []) xs))
 
 (defn fetch-json [opts]
