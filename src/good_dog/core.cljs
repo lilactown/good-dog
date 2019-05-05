@@ -21,6 +21,17 @@
                 e))))
 
 (defn fetch
+  "Fetches data from a URL over HTTP(S). Returns a JS Promise.
+
+  Takes the same options as native fetch: https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch#Supplying_request_options.
+
+  Differences:
+  - URL is passed in as key `:url`
+  - Supports sieppari interceptors via `:interceptors`
+  - A different `fetch` implementation may be passed in via `:fetch`
+
+  By default, uses `js/window.fetch`. For Node.js, consider using something
+  like https://github.com/bitinn/node-fetch/."
   ([opts]
    (js/Promise. (fn execute-fetch [resolve reject]
                   (sieppari/execute (into (or (:interceptors opts) [])
@@ -32,7 +43,17 @@
 (defn- conjv [v & xs]
   (apply conj (or v []) xs))
 
-(defn fetch-json [opts]
+(defn fetch-json
+  "Fetches JSON data from a URL over HTTP(S), deeply converting the JSON data to
+  a CLJS data. Returns a JS Promise.
+
+  It's a shorthand for:
+  ```
+  (fetch {:interceptors [good-dog.interceptors/->cljs
+                         good-dog.interceptors/json]
+          ...})
+  ```"
+  [opts]
   (fetch (update opts :interceptors conjv incpt/->cljs incpt/json)))
 
 
