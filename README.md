@@ -1,4 +1,4 @@
-# Good-Dog 🦴🐕
+# good-dog 🦴🐕
 
 A ClojureScript library for fetching data over HTTP(S), based around the
 [Fetch standard API](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API)
