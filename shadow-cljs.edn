@@ -1,0 +1,11 @@
+;; shadow-cljs configuration
+{:deps true
+ :source-paths
+ ["src"
+  "test"]
+
+ :dependencies
+ []
+
+ :builds
+ {}}

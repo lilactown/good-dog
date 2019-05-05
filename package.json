@@ -1,0 +1,15 @@
+{
+  "name": "goodboy",
+  "version": "0.0.1",
+  "description": "Good Boy!",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Will Acton",
+  "license": "MIT",
+  "devDependencies": {
+    "node-fetch": "^2.5.0",
+    "shadow-cljs": "^2.8.36"
+  }
+}
