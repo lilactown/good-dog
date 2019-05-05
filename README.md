@@ -28,8 +28,7 @@ available in modern browsers.
 
 ### Options
 
-`good-dog.core/fetch` takes all of the same options as the [native Fetch](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch#Supplying_request_options)
-API specifies. It expects a map with keywords as keys.
+`good-dog.core/fetch` takes all of the same options as the [native Fetch](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch#Supplying_request_options) API. It expects a map with keywords as keys.
 
 It has the following differences:
 - The URL to send the request to is passed in via the `:url` key
