@@ -19,7 +19,7 @@ available in modern browsers.
 
 ;; fetch response from a URL and automatically read it as JSON,
 ;; then convert it to CLJS data
-(-> (fetch-json {:url "http://jsonplaceholder.typicode.com/todos/1"})
+(-> (gd/fetch-json {:url "http://jsonplaceholder.typicode.com/todos/1"})
     (.then prn)
     ;; If an error occurs while reading as JSON or converting to CLJS data
     (.catch #(prn "error" %)))
