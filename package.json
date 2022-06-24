@@ -9,7 +9,7 @@
   "author": "Will Acton",
   "license": "MIT",
   "devDependencies": {
-    "node-fetch": "^2.5.0",
+    "node-fetch": "^2.6.7",
     "shadow-cljs": "^2.8.36"
   }
 }
